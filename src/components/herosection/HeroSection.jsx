@@ -1,4 +1,4 @@
-import { Star, BellRing, Zap } from 'lucide-react'
+import { Star, Globe, Coffee } from 'lucide-react'
 
 export default function HeroSection() {
     return (
@@ -20,16 +20,10 @@ export default function HeroSection() {
                 <p className="text-center text-gray-400 mb-6">Companies that trust Ingabo Tech</p>
                 <div className="flex justify-center items-center space-x-12">
                     <div className="text-[#00ff9d] font-bold text-xl flex items-center">
-                        <BellRing className="mr-2" /> ODE
+                        <Globe className="mr-2" /> GET IT LTD
                     </div>
                     <div className="text-[#00ff9d] font-bold text-xl flex items-center">
-                        <Zap className="mr-2" /> TURBO
-                    </div>
-                    <div className="text-[#00ff9d] font-bold text-xl">
-                        LECOS
-                    </div>
-                    <div className="text-[#00ff9d] font-bold text-xl">
-                        Adepts
+                        <Coffee className="mr-2" /> QAHWA HOUSE
                     </div>
                 </div>
             </div>
