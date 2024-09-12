@@ -5,6 +5,7 @@ import ServicesSection from './components/service/Services';
 import WhyChooseUs from './components/whyus/WhyChooseUs';
 import AboutUs from './components/aboutus/AboutUs';
 import TeamSection from './components/Team/Team';
+import ReviewsSection from './components/Reviews/Reviews';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
     <WhyChooseUs />
     <AboutUs />
     <TeamSection />
+    <ReviewsSection />
     </>
   )
 }

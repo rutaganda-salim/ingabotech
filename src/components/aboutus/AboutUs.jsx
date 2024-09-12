@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <section className="bg-[#0D0F1A] py-12 px-4 md:py-16 lg:px-8 h-screen flex items-center justify-center">
+    <section className="bg-[#071119] py-12 px-4 md:py-16 lg:px-8 h-screen flex items-center justify-center">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-semibold mb-8 lg:mb-16 text-center w-full text-white">
           About us
