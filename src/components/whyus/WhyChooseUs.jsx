@@ -43,8 +43,8 @@ const WhyChooseUs = () => {
             expectations. Our team’s dedication, innovation, and expertise are
             the reasons our clients choose us for their most important projects.
           </p>
-          <button className="bg-[#071119] text-white rounded-full py-4 px-8 border-2 border-transparent hover:bg-transparent hover:border-[071119] hover:text-[#071119] transition-colors">
-            Get a Quote
+          <button className="bg-[#071119] text-white rounded-full py-5 px-10 border-2 border-transparent hover:bg-transparent hover:border-[#071119] hover:text-[#071119] transition-colors">
+            Talk to us
           </button>
 
         </div>
