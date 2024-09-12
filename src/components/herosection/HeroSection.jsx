@@ -20,7 +20,7 @@ export default function HeroSection() {
                 <p className="text-center text-gray-400 mb-6">Companies that trust Ingabo Tech</p>
                 <div className="flex justify-center items-center space-x-12">
                     <div className="text-[#00ff9d] font-bold text-xl flex items-center">
-                        <Globe className="mr-2" /> GET IT LTD
+                        <Globe className="mr-2" /> G0T IT LTD
                     </div>
                     <div className="text-[#00ff9d] font-bold text-xl flex items-center">
                         <Coffee className="mr-2" /> QAHWA HOUSE
