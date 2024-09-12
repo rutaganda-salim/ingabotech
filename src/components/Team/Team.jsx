@@ -6,7 +6,7 @@ const teamMembers = [
     {
         name: 'Brian Nkongori',
         role: 'CEO & Project Manager',
-        image: 'https://media.licdn.com/dms/image/v2/D4D03AQHs70p13DPSyw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693826323168?e=1731542400&v=beta&t=7921Tsy0UbYGymMLX3hXniR6N5No0lnhqH8gmZI6QdE',
+        image: '/teambrian.jpg',
         description: 'Brian leads the team and manages projects with strategic vision and precision.',
         linkedIn: 'https://www.linkedin.com/in/brian-nkongori/',
     },

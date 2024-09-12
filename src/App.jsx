@@ -6,18 +6,20 @@ import WhyChooseUs from './components/whyus/WhyChooseUs';
 import AboutUs from './components/aboutus/AboutUs';
 import TeamSection from './components/Team/Team';
 import ReviewsSection from './components/Reviews/Reviews';
+import SubscriptionSection from './components/subscribeSection/Subscribe';
 
 function App() {
-  
+
   return (
     <>
-    <Navbar />
-    <HeroSection />
-    <ServicesSection />
-    <WhyChooseUs />
-    <AboutUs />
-    <TeamSection />
-    <ReviewsSection />
+      <Navbar />
+      <HeroSection />
+      <ServicesSection />
+      <WhyChooseUs />
+      <AboutUs />
+      <TeamSection />
+      <ReviewsSection />
+      <SubscriptionSection />
     </>
   )
 }
