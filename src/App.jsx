@@ -4,6 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import ServicesSection from './components/service/Services';
 import WhyChooseUs from './components/whyus/WhyChooseUs';
 import AboutUs from './components/aboutus/AboutUs';
+import TeamSection from './components/Team/Team';
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
     <ServicesSection />
     <WhyChooseUs />
     <AboutUs />
+    <TeamSection />
     </>
   )
 }
