@@ -19,7 +19,7 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section className="bg-[#071119] text-white py-16 min-h-screen flex flex-col justify-center">
+    <section id='reviews' className="bg-[#071119] text-white py-16 min-h-screen flex flex-col justify-center">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-semibold">What do our customers say?</h2>
         <p className="text-gray-400 mt-4 max-w-xl mx-auto">
