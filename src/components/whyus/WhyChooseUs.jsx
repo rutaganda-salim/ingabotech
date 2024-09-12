@@ -5,25 +5,25 @@ const WhyChooseUs = () => {
   // Define the services
   const cards = [
     {
-      icon: <Award className="w-16 h-16 text-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
+      icon: <Award className="w-16 h-16 text-[#00ff9d] fill-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
       title: "Experience",
       description:
         "With years of industry experience, we bring deep expertise to every project, ensuring high-quality solutions tailored to your business needs.",
     },
     {
-      icon: <Zap className="w-16 h-16 text-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
+      icon: <Zap className="w-16 h-16 text-[#00ff9d] fill-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
       title: "Results oriented solutions",
       description:
         "Our focus is on delivering tangible results. We build innovative, efficient, and scalable solutions that drive success and growth.",
     },
     {
-      icon: <User className="w-16 h-16 text-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
+      icon: <User className="w-16 h-16 text-[#00ff9d] fill-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
       title: "Customer centric approach",
       description:
         "We put our clients first. By understanding your goals, we develop strategies that align with your vision and ensure complete satisfaction.",
     },
     {
-      icon: <Users className="w-16 h-16 text-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
+      icon: <Users className="w-16 h-16 text-[#00ff9d] fill-[#00ff9d] bg-[#004d29] rounded-full p-3 md:p-4 mr-4" />,
       title: "Collaborative Partnership",
       description:
         "We work closely with you as partners, maintaining open communication and ensuring seamless collaboration throughout every stage of the project.",
