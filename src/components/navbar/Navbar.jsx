@@ -3,7 +3,7 @@ import { CheckCircle } from 'lucide-react';
 
 export default function Navbar() {
   return (
-    <nav className="bg-[#071119] p-4 sticky top-0">
+    <nav className="bg-[#071119] p-4 sticky top-0 z-[9999]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="/" className="flex items-center text-[#00ff9d] text-xl font-semibold">
           <CheckCircle className="mr-2" />
