@@ -4,13 +4,62 @@ import { useState } from "react";
 
 export default function AgencyForm() {
   const [step, setStep] = useState(1);
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    contactMethod: '',
+    projectType: '',
+    projectScope: '',
+    timeline: '',
+    keyFeatures: '',
+    targetAudience: '',
+    competitors: '',
+    objectives: '',
+    technologies: '',
+    challenges: '',
+    designPreferences: '',
+    comments: '',
+  });
+
   const totalSteps = 4;
 
-  const nextStep = () => setStep(step + 1);
+  const handleChange = (e) => {
+    const { id, value, type, checked } = e.target;
+    if (type === "radio") {
+      setFormValues({ ...formValues, [id]: checked ? value : '' });
+    } else {
+      setFormValues({ ...formValues, [id]: value });
+    }
+  };
+
+  const isStepValid = () => {
+    switch (step) {
+      case 1:
+        return formValues.name && formValues.email && formValues.phone && formValues.contactMethod;
+      case 2:
+        return formValues.projectType && formValues.projectScope && formValues.timeline;
+      case 3:
+        return formValues.keyFeatures && formValues.targetAudience && formValues.competitors && formValues.objectives;
+      case 4:
+        return formValues.technologies && formValues.challenges && formValues.designPreferences && formValues.comments;
+      default:
+        return false;
+    }
+  };
+
+  const nextStep = () => {
+    if (isStepValid()) {
+      setStep(step + 1);
+    } else {
+      alert("Please complete all required fields.");
+    }
+  };
+
   const prevStep = () => setStep(step - 1);
 
   return (
-    <div className="min-h-screen w-full sm:w-[800px]  flex items-center justify-center bg-[#071119] text-[#00FF9D]">
+    <div className="min-h-screen w-full sm:w-[800px] flex items-center justify-center bg-[#071119] text-[#00FF9D]">
       <div className="w-full p-8 rounded-lg shadow-lg">
         <div className="flex justify-between mb-8">
           {[1, 2, 3, 4].map((num) => (
@@ -41,7 +90,9 @@ export default function AgencyForm() {
                 <input
                   id="name"
                   placeholder="Your full name"
-                  className="w-full px-3 py-2 text-white h-16 bg-[#071119] border  rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                  value={formValues.name}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 text-white h-16 bg-[#071119] border rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 />
               </div>
               <div>
@@ -55,7 +106,9 @@ export default function AgencyForm() {
                   id="email"
                   type="email"
                   placeholder="Your email"
-                  className="w-full px-3 py-2 h-16 text-white bg-[#071119] border  rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                  value={formValues.email}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 h-16 text-white bg-[#071119] border rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 />
               </div>
               <div>
@@ -69,7 +122,9 @@ export default function AgencyForm() {
                   id="phone"
                   type="tel"
                   placeholder="Your phone number"
-                  className="w-full px-3 py-2 h-16 bg-[#071119] border  text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                  value={formValues.phone}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 h-16 bg-[#071119] border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 />
               </div>
               <div>
@@ -80,8 +135,10 @@ export default function AgencyForm() {
                   <label className="flex items-center space-x-2 text-white text-xl">
                     <input
                       type="radio"
-                      name="contact-method"
+                      id="contactMethod"
                       value="email"
+                      checked={formValues.contactMethod === 'email'}
+                      onChange={handleChange}
                       className="text-white focus:ring-[#00FF9D] w-4 h-4"
                     />
                     <span>Email</span>
@@ -89,9 +146,11 @@ export default function AgencyForm() {
                   <label className="flex items-center space-x-2 text-white text-xl">
                     <input
                       type="radio"
-                      name="contact-method"
+                      id="contactMethod"
                       value="phone"
-                      className="text-white  focus:ring-[#00FF9D] w-4 h-4"
+                      checked={formValues.contactMethod === 'phone'}
+                      onChange={handleChange}
+                      className="text-white focus:ring-[#00FF9D] w-4 h-4"
                     />
                     <span>Phone</span>
                   </label>
@@ -111,7 +170,9 @@ export default function AgencyForm() {
                   Project Type
                 </label>
                 <select
-                  id="project-type"
+                  id="projectType"
+                  value={formValues.projectType}
+                  onChange={handleChange}
                   className="w-full px-3 py-2 bg-[#071119] border text-white h-16 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 >
                   <option value="">Select project type</option>
@@ -128,9 +189,11 @@ export default function AgencyForm() {
                   Project Scope
                 </label>
                 <textarea
-                  id="project-scope"
+                  id="projectScope"
                   placeholder="Describe your project"
-                  className="w-full px-3 py-2 bg-[#071119] border  rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                  value={formValues.projectScope}
+                  onChange={handleChange}
+                  className="w-full resize-none px-3 py-2 bg-[#071119] border rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                   rows={4}
                 ></textarea>
               </div>
@@ -144,7 +207,9 @@ export default function AgencyForm() {
                 <input
                   id="timeline"
                   placeholder="e.g., 3 months"
-                  className="w-full px-3 py-2 text-white h-16 bg-[#071119] border rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                  value={formValues.timeline}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 text-white h-16 bg-[#071119] border rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 />
               </div>
             </div>
@@ -161,9 +226,11 @@ export default function AgencyForm() {
                   Key Features
                 </label>
                 <textarea
-                  id="key-features"
+                  id="keyFeatures"
                   placeholder="List the key features you want"
-                  className="w-full px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                  value={formValues.keyFeatures}
+                  onChange={handleChange}
+                  className="w-full resize-none px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                   rows={4}
                 ></textarea>
               </div>
@@ -175,9 +242,11 @@ export default function AgencyForm() {
                   Target Audience
                 </label>
                 <input
-                  id="target-audience"
+                  id="targetAudience"
                   placeholder="Describe your target audience"
-                  className="w-full px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                  value={formValues.targetAudience}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 />
               </div>
               <div>
@@ -185,12 +254,14 @@ export default function AgencyForm() {
                   htmlFor="competitors"
                   className="block text-xl text-white font-medium mb-1"
                 >
-                  Competitors or Similar Projects
+                  Competitors
                 </label>
                 <input
                   id="competitors"
-                  placeholder="List any competitors or inspirations"
-                  className="w-full px-3 py-2 bg-[#071119] border text-white h-16 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                  placeholder="List any competitors"
+                  value={formValues.competitors}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 />
               </div>
               <div>
@@ -198,12 +269,14 @@ export default function AgencyForm() {
                   htmlFor="objectives"
                   className="block text-xl text-white font-medium mb-1"
                 >
-                  Main Objectives
+                  Objectives
                 </label>
                 <textarea
                   id="objectives"
-                  placeholder="What are the main goals of your project?"
-                  className="w-full px-3 py-2 bg-[#071119] border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+                  placeholder="What are your main objectives?"
+                  value={formValues.objectives}
+                  onChange={handleChange}
+                  className="w-full resize-none px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                   rows={4}
                 ></textarea>
               </div>
@@ -216,67 +289,74 @@ export default function AgencyForm() {
               <div>
                 <label
                   htmlFor="technologies"
-                  className="block text-sm font-medium mb-1"
+                  className="block text-xl text-white font-medium mb-1"
                 >
                   Preferred Technologies
                 </label>
                 <input
                   id="technologies"
-                  placeholder="Any specific technologies or tools?"
-                  className="w-full px-3 py-2 bg-[#071119] border border-[#00FF9D] text-[#00FF9D] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                  placeholder="Specify any preferred technologies"
+                  value={formValues.technologies}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 />
               </div>
               <div>
                 <label
                   htmlFor="challenges"
-                  className="block text-sm font-medium mb-1"
+                  className="block text-xl text-white font-medium mb-1"
                 >
-                  Current Challenges
+                  Potential Challenges
                 </label>
-                <textarea
+                <input
                   id="challenges"
-                  placeholder="Describe any current challenges or pain points"
-                  className="w-full px-3 py-2 bg-[#071119] border border-[#00FF9D] text-[#00FF9D] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
-                  rows={4}
-                ></textarea>
+                  placeholder="Any potential challenges?"
+                  value={formValues.challenges}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                />
               </div>
               <div>
                 <label
                   htmlFor="design-preferences"
-                  className="block text-sm font-medium mb-1"
+                  className="block text-xl text-white font-medium mb-1"
                 >
                   Design Preferences
                 </label>
                 <textarea
-                  id="design-preferences"
-                  placeholder="Any design preferences or inspirations?"
-                  className="w-full px-3 py-2 bg-[#071119] border border-[#00FF9D] text-[#00FF9D] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                  id="designPreferences"
+                  placeholder="Any design preferences?"
+                  value={formValues.designPreferences}
+                  onChange={handleChange}
+                  className="w-full resize-none px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                   rows={4}
                 ></textarea>
               </div>
               <div>
                 <label
                   htmlFor="comments"
-                  className="block text-sm font-medium mb-1"
+                  className="block text-xl text-white font-medium mb-1"
                 >
                   Additional Comments
                 </label>
                 <textarea
                   id="comments"
-                  placeholder="Any additional information or comments"
-                  className="w-full px-3 py-2 bg-[#071119] border border-[#00FF9D] text-[#00FF9D] rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
+                  placeholder="Any additional comments or notes"
+                  value={formValues.comments}
+                  onChange={handleChange}
+                  className="w-full resize-none px-3 py-2 bg-[#071119] border h-16 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                   rows={4}
                 ></textarea>
               </div>
             </div>
           )}
 
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-8">
             {step > 1 && (
               <button
                 type="button"
                 onClick={prevStep}
-                className="px-4 py-2 bg-gray-700 text-[#00FF9D] rounded-md hover:bg-gray-600"
+                className="px-4 py-2 bg-gray-700 text-white rounded-md"
               >
                 Previous
               </button>
@@ -285,14 +365,15 @@ export default function AgencyForm() {
               <button
                 type="button"
                 onClick={nextStep}
-                className="px-4 py-2 bg-[#00FF9D] text-[#071119] rounded-md hover:bg-[#00e689]"
+                disabled={!isStepValid()}
+                className={`px-4 py-2 rounded-md ${isStepValid() ? 'bg-[#00FF9D]' : 'bg-gray-500'} text-white`}
               >
                 Next
               </button>
             ) : (
               <button
                 type="submit"
-                className="px-4 py-2 bg-[#00FF9D] text-[#071119] rounded-md hover:bg-[#00e689]"
+                className="px-4 py-2 bg-[#00FF9D] text-white rounded-md"
               >
                 Submit
               </button>

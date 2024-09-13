@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react'; // Import the icons
 import 'boxicons';
+import { Navigate } from 'react-router-dom';
 
 const SubscriptionSection = () => {
     return (
@@ -34,10 +35,9 @@ const SubscriptionSection = () => {
                     <div>
                         <h3 className="text-2xl font-semibold mb-4">Quick Links</h3>
                         <ul className="space-y-2 text-gray-400 text-lg">
-                            <li><a href="#home" className="hover:text-[#00FF80]">Home</a></li>
-                            <li><a href="#services" className="hover:text-[#00FF80]">Services</a></li>
-                            <li><a href="#aboutus" className="hover:text-[#00FF80]">About Us</a></li>
-                            <li><a href="#blog" className="hover:text-[#00FF80]">Contact</a></li>
+                            <li><a href="#home"  onClick={() => navigate("/#home")} className="hover:text-[#00FF80]">Home</a></li>
+                            <li><a href="#services"  onClick={() => navigate("/#services")} className="hover:text-[#00FF80]">Services</a></li>
+                            <li><a href="#aboutus"  onClick={() => navigate("/#aboutus")} className="hover:text-[#00FF80]">About Us</a></li>
                         </ul>
                     </div>
 

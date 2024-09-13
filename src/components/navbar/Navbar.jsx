@@ -46,6 +46,7 @@ export default function Navbar() {
         <a
           href="#home"
           className="flex items-center text-[#00ff9d] text-xl font-semibold"
+          onClick={() => navigate("/#home")}
         >
           <CheckCircle className="mr-2" />
           Ingabo Tech
@@ -53,7 +54,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-8">
           <a
             href="#home"
-            onClick={() => handleLinkClick("#home")}
+            onClick={() => navigate("/")}
             className={`relative group ${
               activeLink === "#home"
                 ? "text-[#00ff9d]"
@@ -69,7 +70,7 @@ export default function Navbar() {
           </a>
           <a
             href="#services"
-            onClick={() => handleLinkClick("#services")}
+            onClick={() => navigate("/#services")}
             className={`relative group ${
               activeLink === "#services"
                 ? "text-[#00ff9d]"
@@ -85,7 +86,7 @@ export default function Navbar() {
           </a>
           <a
             href="#aboutus"
-            onClick={() => handleLinkClick("#aboutus")}
+            onClick={() => navigate("/#aboutus")}
             className={`relative group ${
               activeLink === "#aboutus"
                 ? "text-[#00ff9d]"
@@ -101,7 +102,7 @@ export default function Navbar() {
           </a>
           <a
             href="#team"
-            onClick={() => handleLinkClick("#team")}
+            onClick={() => navigate("/#team")}
             className={`relative group ${
               activeLink === "#team"
                 ? "text-[#00ff9d]"
