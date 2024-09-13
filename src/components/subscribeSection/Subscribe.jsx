@@ -33,10 +33,10 @@ const SubscriptionSection = () => {
                     {/* Quick Links */}
                     <div>
                         <h3 className="text-2xl font-semibold mb-4">Quick Links</h3>
-                        <ul className="space-y-2 text-gray-400 text-xl">
+                        <ul className="space-y-2 text-gray-400 text-lg">
                             <li><a href="#home" className="hover:text-[#00FF80]">Home</a></li>
                             <li><a href="#services" className="hover:text-[#00FF80]">Services</a></li>
-                            <li><a href="#about" className="hover:text-[#00FF80]">About Us</a></li>
+                            <li><a href="#aboutus" className="hover:text-[#00FF80]">About Us</a></li>
                             <li><a href="#blog" className="hover:text-[#00FF80]">Contact</a></li>
                         </ul>
                     </div>
@@ -44,7 +44,7 @@ const SubscriptionSection = () => {
                     {/* Location */}
                     <div>
                         <h3 className="text-2xl font-semibold mb-4">Our Location</h3>
-                        <p className="text-xl text-gray-400">
+                        <p className="text-lg text-gray-400">
                             <MapPin className="inline-block mr-2" /> KG 31 Ave, Kigali, Rwanda <br />
                             <Phone className="inline-block mr-2" /> +250 788 708 389 <br />
                             <Mail className="inline-block mr-2" /> info@ingabotech.com
@@ -54,7 +54,7 @@ const SubscriptionSection = () => {
                     {/* Services */}
                     <div>
                         <h3 className="text-2xl font-semibold mb-4">Services</h3>
-                        <ul className="space-y-2 text-gray-400 text-xl">
+                        <ul className="space-y-2 text-gray-400 text-lg">
                             <li>Software Development</li>
                             <li>IT Consulting</li>
                             <li>Project Management</li>

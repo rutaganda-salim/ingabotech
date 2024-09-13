@@ -38,7 +38,7 @@ const WhyChooseUs = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-[#071119] mb-6">
             Why choose us?
           </h2>
-          <p className="text-base sm:text-lg text-[#071119] mb-8">
+          <p className="text-base md:text-lg text-[#071119] mb-8">
             We are committed to delivering exceptional services that exceed
             expectations. Our team’s dedication, innovation, and expertise are
             the reasons our clients choose us for their most important projects.
@@ -46,7 +46,6 @@ const WhyChooseUs = () => {
           <button className="bg-[#071119] text-white rounded-full py-5 px-10 border-2 border-transparent hover:bg-transparent hover:border-[#071119] hover:text-[#071119] transition-colors">
             Talk to us
           </button>
-
         </div>
 
         {/* Right section - cards */}
