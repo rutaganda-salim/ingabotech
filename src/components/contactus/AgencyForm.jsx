@@ -1,25 +1,45 @@
 "use client";
 
 import { useState } from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function AgencyForm() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send("service_ccpxtjm", "template_ghiruhl", formValues, {
+        publicKey: "NKCSolpNuoP0lqR-c",
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   const [step, setStep] = useState(1);
   const [formValues, setFormValues] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    contactMethod: '',
-    projectType: '',
-    projectScope: '',
-    timeline: '',
-    keyFeatures: '',
-    targetAudience: '',
-    competitors: '',
-    objectives: '',
-    technologies: '',
-    challenges: '',
-    designPreferences: '',
-    comments: '',
+    name: "",
+    email: "",
+    phone: "",
+    contactMethod: "",
+    projectType: "",
+    projectScope: "",
+    timeline: "",
+    keyFeatures: "",
+    targetAudience: "",
+    competitors: "",
+    objectives: "",
+    technologies: "",
+    challenges: "",
+    designPreferences: "",
+    comments: "",
   });
 
   const totalSteps = 4;
@@ -27,7 +47,7 @@ export default function AgencyForm() {
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target;
     if (type === "radio") {
-      setFormValues({ ...formValues, [id]: checked ? value : '' });
+      setFormValues({ ...formValues, [id]: checked ? value : "" });
     } else {
       setFormValues({ ...formValues, [id]: value });
     }
@@ -36,13 +56,32 @@ export default function AgencyForm() {
   const isStepValid = () => {
     switch (step) {
       case 1:
-        return formValues.name && formValues.email && formValues.phone && formValues.contactMethod;
+        return (
+          formValues.name &&
+          formValues.email &&
+          formValues.phone &&
+          formValues.contactMethod
+        );
       case 2:
-        return formValues.projectType && formValues.projectScope && formValues.timeline;
+        return (
+          formValues.projectType &&
+          formValues.projectScope &&
+          formValues.timeline
+        );
       case 3:
-        return formValues.keyFeatures && formValues.targetAudience && formValues.competitors && formValues.objectives;
+        return (
+          formValues.keyFeatures &&
+          formValues.targetAudience &&
+          formValues.competitors &&
+          formValues.objectives
+        );
       case 4:
-        return formValues.technologies && formValues.challenges && formValues.designPreferences && formValues.comments;
+        return (
+          formValues.technologies &&
+          formValues.challenges &&
+          formValues.designPreferences &&
+          formValues.comments
+        );
       default:
         return false;
     }
@@ -76,7 +115,7 @@ export default function AgencyForm() {
           ))}
         </div>
 
-        <form className="space-y-6">
+        <form ref={form} onSubmit={sendEmail} className="space-y-6">
           {step === 1 && (
             <div className="space-y-4">
               <h2 className="text-2xl font-bold">Contact Information</h2>
@@ -90,6 +129,7 @@ export default function AgencyForm() {
                 <input
                   id="name"
                   placeholder="Your full name"
+                  name="name"
                   value={formValues.name}
                   onChange={handleChange}
                   className="w-full px-3 py-2 text-white h-16 bg-[#071119] border rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
@@ -105,6 +145,7 @@ export default function AgencyForm() {
                 <input
                   id="email"
                   type="email"
+                  name="email"
                   placeholder="Your email"
                   value={formValues.email}
                   onChange={handleChange}
@@ -120,6 +161,7 @@ export default function AgencyForm() {
                 </label>
                 <input
                   id="phone"
+                  name="phone"
                   type="tel"
                   placeholder="Your phone number"
                   value={formValues.phone}
@@ -135,9 +177,10 @@ export default function AgencyForm() {
                   <label className="flex items-center space-x-2 text-white text-xl">
                     <input
                       type="radio"
+                      name="contactMethod"
                       id="contactMethod"
                       value="email"
-                      checked={formValues.contactMethod === 'email'}
+                      checked={formValues.contactMethod === "email"}
                       onChange={handleChange}
                       className="text-white focus:ring-[#00FF9D] w-4 h-4"
                     />
@@ -147,8 +190,9 @@ export default function AgencyForm() {
                     <input
                       type="radio"
                       id="contactMethod"
+                      name="contactMethod"
                       value="phone"
-                      checked={formValues.contactMethod === 'phone'}
+                      checked={formValues.contactMethod === "phone"}
                       onChange={handleChange}
                       className="text-white focus:ring-[#00FF9D] w-4 h-4"
                     />
@@ -171,14 +215,18 @@ export default function AgencyForm() {
                 </label>
                 <select
                   id="projectType"
+                  name="projectType"
                   value={formValues.projectType}
                   onChange={handleChange}
                   className="w-full px-3 py-2 bg-[#071119] border text-white h-16 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00FF9D]"
                 >
                   <option value="">Select project type</option>
                   <option value="website">Website Development</option>
-                  <option value="app">App Development</option>
+                  <option value="app">Mobile App Development</option>
                   <option value="consulting">IT Consulting</option>
+                  <option value="consulting">SEO</option>
+                  <option value="consulting">UI & UX Design</option>
+                  <option value="consulting">Digital Marketing</option>
                 </select>
               </div>
               <div>
@@ -190,6 +238,7 @@ export default function AgencyForm() {
                 </label>
                 <textarea
                   id="projectScope"
+                  name="projectScope"
                   placeholder="Describe your project"
                   value={formValues.projectScope}
                   onChange={handleChange}
@@ -205,6 +254,7 @@ export default function AgencyForm() {
                   Desired Timeline
                 </label>
                 <input
+                  name="timeline"
                   id="timeline"
                   placeholder="e.g., 3 months"
                   value={formValues.timeline}
@@ -226,6 +276,7 @@ export default function AgencyForm() {
                   Key Features
                 </label>
                 <textarea
+                  name="keyFeatures"
                   id="keyFeatures"
                   placeholder="List the key features you want"
                   value={formValues.keyFeatures}
@@ -242,6 +293,7 @@ export default function AgencyForm() {
                   Target Audience
                 </label>
                 <input
+                  name="targetAudience"
                   id="targetAudience"
                   placeholder="Describe your target audience"
                   value={formValues.targetAudience}
@@ -257,6 +309,7 @@ export default function AgencyForm() {
                   Competitors
                 </label>
                 <input
+                  name="competitors"
                   id="competitors"
                   placeholder="List any competitors"
                   value={formValues.competitors}
@@ -272,6 +325,7 @@ export default function AgencyForm() {
                   Objectives
                 </label>
                 <textarea
+                  name="objectives"
                   id="objectives"
                   placeholder="What are your main objectives?"
                   value={formValues.objectives}
@@ -294,6 +348,7 @@ export default function AgencyForm() {
                   Preferred Technologies
                 </label>
                 <input
+                  name="technologies"
                   id="technologies"
                   placeholder="Specify any preferred technologies"
                   value={formValues.technologies}
@@ -309,6 +364,7 @@ export default function AgencyForm() {
                   Potential Challenges
                 </label>
                 <input
+                  name="challenges"
                   id="challenges"
                   placeholder="Any potential challenges?"
                   value={formValues.challenges}
@@ -324,6 +380,7 @@ export default function AgencyForm() {
                   Design Preferences
                 </label>
                 <textarea
+                  name="designPreferences"
                   id="designPreferences"
                   placeholder="Any design preferences?"
                   value={formValues.designPreferences}
@@ -340,6 +397,7 @@ export default function AgencyForm() {
                   Additional Comments
                 </label>
                 <textarea
+                  name="comments"
                   id="comments"
                   placeholder="Any additional comments or notes"
                   value={formValues.comments}
@@ -366,7 +424,9 @@ export default function AgencyForm() {
                 type="button"
                 onClick={nextStep}
                 disabled={!isStepValid()}
-                className={`px-4 py-2 rounded-md ${isStepValid() ? 'bg-[#00FF9D]' : 'bg-gray-500'} text-white`}
+                className={`px-4 py-2 rounded-md ${
+                  isStepValid() ? "bg-[#00FF9D]" : "bg-gray-500"
+                } text-white`}
               >
                 Next
               </button>
