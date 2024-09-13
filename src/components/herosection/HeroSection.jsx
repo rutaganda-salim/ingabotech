@@ -1,4 +1,4 @@
-import { Star, Globe, Coffee } from 'lucide-react'
+import { Star, Globe, Coffee, Monitor, Cross, ShoppingCart } from 'lucide-react'
 
 export default function HeroSection() {
     return (
@@ -24,6 +24,15 @@ export default function HeroSection() {
                     </div>
                     <div className="text-[#00ff9d] font-bold text-xl flex items-center">
                         <Coffee className="mr-2" /> QAHWA HOUSE
+                    </div>
+                    <div className="text-[#00ff9d] font-bold text-xl flex items-center">
+                        <Monitor className="mr-2" /> MBOUKE SERVICES
+                    </div>
+                    <div className="text-[#00ff9d] font-bold text-xl flex items-center">
+                        <Cross className="mr-2" /> IJABIRO FUNERAL SERVICES
+                    </div>
+                    <div className="text-[#00ff9d] font-bold text-xl flex items-center">
+                        <ShoppingCart className="mr-2" /> NDAGIRIMANA LTD
                     </div>
                 </div>
             </div>
