@@ -6,8 +6,10 @@ import {
   Cross,
   ShoppingCart,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+  const navigate = useNavigate();
   return (
     <div
       id="home"
@@ -28,13 +30,12 @@ export default function HeroSection() {
         >
           Quote now
         </button> */}
-        <a
-          href="#get-quote"
+        <button
           onClick={() => navigate("/options")}
           className=" bg-[#00ff9d] text-[#0c0d0e]  sm:px-12 py-3 sm:py-4 px-8  rounded-full font-medium border-2 border-[#00ff9d] hover:bg-[#071119] hover:text-white hover:border-[#00cc7d] transition-colors duration-300 ease-in-out w-full sm:w-auto"
         >
           Quote now
-        </a>
+        </button>
         <div className="flex items-center justify-center mt-4">
           <span className="mr-2 mt-4">4.8</span>
           <Star className="w-5 h-5 fill-yellow-500 text-yellow-500 mt-4" />

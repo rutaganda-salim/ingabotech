@@ -1,7 +1,10 @@
 import React from 'react';
 import { User, Zap, Award, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 
 const WhyChooseUs = () => {
+  const navigate = useNavigate();
   // Define the services
   const cards = [
     {
@@ -43,7 +46,10 @@ const WhyChooseUs = () => {
             expectations. Our team’s dedication, innovation, and expertise are
             the reasons our clients choose us for their most important projects.
           </p>
-          <button className="bg-[#071119] text-white rounded-full py-5 px-10 border-2 border-transparent hover:bg-transparent hover:border-[#071119] hover:text-[#071119] transition-colors">
+          <button 
+          
+          onClick={() => navigate("/options")}
+          className="bg-[#071119] text-white rounded-full py-5 px-10 border-2 border-transparent hover:bg-transparent hover:border-[#071119] hover:text-[#071119] transition-colors">
             Talk to us
           </button>
         </div>
