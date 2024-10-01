@@ -205,7 +205,7 @@ export default function Navbar() {
             onClick={() => {
               setIsMobileMenuOpen(false);
             }}
-            className="bg-[#00ff9d] text-[#0c0d0e] px-8 py-4 rounded-full font-medium border-2 border-[#00ff9d] hover:bg-[#071119] hover:text-white hover:border-[#00cc7d] transition-colors duration-300 ease-in-out"
+            className="bg-[#00ff9d] text-[#0c0d0e] px-8 py-4 rounded-full text-center font-medium border-2 border-[#00ff9d] hover:bg-[#071119] hover:text-white hover:border-[#00cc7d] transition-colors duration-300 ease-in-out"
           >
             Get Quote
           </a>

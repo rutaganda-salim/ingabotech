@@ -17,9 +17,9 @@ const AboutUs = () => {
             <p className="mb-6 text-white">
               From web and mobile development to UI/UX design and cybersecurity, our team of experts is dedicated to providing tailor-made solutions that address the unique challenges of each client. We take pride in our ability to drive growth and success through collaboration, creativity, and technical excellence.
             </p>
-            <button className="relative bg-[#00ff9d] text-[#0c0d0e] px-6 py-3 rounded-full font-medium border-2 border-[#00ff9d] hover:bg-[#071119] hover:text-white hover:border-[#00cc7d] transition-colors duration-300 ease-in-out">
+            {/* <button className="relative bg-[#00ff9d] text-[#0c0d0e] px-6 py-3 rounded-full font-medium border-2 border-[#00ff9d] hover:bg-[#071119] hover:text-white hover:border-[#00cc7d] transition-colors duration-300 ease-in-out">
               Learn more
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
